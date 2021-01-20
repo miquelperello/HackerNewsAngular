@@ -1,0 +1,19 @@
+
+<table class="ini_spacer">
+  <tr style="height:10px"></tr>
+</table>
+<table class="info">
+  <tr>
+    <td>user:     {{name}} </td>
+  </tr>
+  <tr>
+    <td>created: {{created}}      </td>
+  </tr>
+  <tr>
+    <td>about:  {{about}}    </td>
+  </tr>
+
+  <tr><td style="width:70%" > <a [routerLink]="['/submitted']" [queryParams]="{id:name}"> submissions </a></td></tr>
+  <tr><td><a  [routerLink]="['/upvoted']" [queryParams]="{id:name}"> upvoted submissions </a> <a [routerLink]="['/upvotedcomments']" [queryParams]="{id:name}"> / comments </a> <i>(private)</i></td></tr>
+
+</table>

@@ -1,0 +1,22 @@
+<table class="info">
+  <tbody *ngFor="let item of items">
+  <tr><td><br></td></tr>
+  <tr>
+    <td>{{item.point}} points by <a [routerLink]="['/info_user/' + item.user]">{{item.user}}</a>
+         <a> {{item.created_at | dateAgo}} </a> |  <a [routerLink]="['/comments']" [queryParams]="{ id: item.message_id}"> parent </a> <a> | <a (click)=" delete(item.id)"> delete </a> | </a>  <a [routerLink]="['/comments']" [queryParams]="{ id: item.id}"> comments </a></td>
+  </tr>
+  <tr>
+    <td>
+      <a [routerLink]="['NewsComponent', {'id':item.id}]"> {{item.text_value}}</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a [routerLink]="['/reply']" [queryParams]="{ id: item.id}"> reply </a>
+    </td>
+  </tr>
+
+  <tr><td><br></td></tr>
+  </tbody>
+</table>
+

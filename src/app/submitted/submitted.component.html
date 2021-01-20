@@ -1,0 +1,19 @@
+<table class="info">
+  <tbody *ngFor="let item of items">
+  <tr>
+    <td>
+    </td>
+    <td>
+      <a [routerLink]="['NewsComponent', {'id':item.id}]"> {{item.title}}</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{item.points}} points by <a [routerLink]="['/info_user/' + item.user]">{{item.user}}</a> | <a>{{item.created_at | dateAgo}} </a> |  <a>Past</a></td>
+  </tr>
+  <tr><td><br></td></tr>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,59 @@
+<table class="info">
+
+  <tbody *ngFor="let item of itemsMessage">
+  <tr>
+    <td>
+    </td>
+    <td>
+      <a [routerLink]="['NewsComponent', {'id':item.id}]"> {{item.title}}</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>{{item.points}} points by <a [routerLink]="['/info_user/' + item.user]">{{item.user}}</a> | <a>{{item.created_at | dateAgo}} </a> |  <a>Past</a></td>
+  </tr>
+  <tr><td><br></td></tr>
+  </tbody>
+</table>
+<table class="info">
+  <tr>
+
+
+    <td><textarea rows ="4" cols="49" ng-model="myTextarea" [(ngModel)]="text"></textarea></td>
+
+  </tr>
+
+  <tr style="height:2px"></tr>
+
+  <tr>
+
+    <td><button (click)="AddAComment()">Add a comment</button></td>
+
+
+  </tr>
+</table>
+<table style = "padding: 5px 15px 5px 15px;" class ="info">
+  <tbody *ngFor="let item of items">
+  <tr>
+    <td>
+    </td>
+    <td>
+      <a [routerLink]="['NewsComponent', {'id':item.id}]"> {{item.text_value}}</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{item.point}} points by <a [routerLink]="['/info_user/' + item.user]">{{item.user}}</a> | <a>{{item.created_at | dateAgo}} </a> |  <a>Past</a></td>
+  </tr>
+  <tr><td><br></td></tr>
+  </tbody>
+</table>
+
+
+
+

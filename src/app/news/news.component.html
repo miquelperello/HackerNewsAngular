@@ -1,0 +1,18 @@
+<table class="info">
+  <tbody *ngFor="let item of items">
+  <tr>
+    <td>
+      <a>{{item.position}}</a>
+    </td>
+    <td>
+      <a [routerLink]="['NewsComponent', {'id':item.id}]"><a (click)="put_like(item.id)"> <img  src="https://news.ycombinator.com/grayarrow.gif" > </a> {{item.title}} </a><a *ngIf="item.url != '' ">({{item.url}})</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{item.points}} points by <a [routerLink]="['/info_user/' + item.user]">{{item.user}}</a>
+        <a> {{item.created_at | dateAgo}} </a> |   <a (click)=" put_unlike(item.id)"> unvote </a> <a> | hide | </a>  <a [routerLink]="['/comments']" [queryParams]="{ id: item.id}"> comments </a></td>
+  <tr><td><br></td></tr>
+  </tbody>
+</table>
+

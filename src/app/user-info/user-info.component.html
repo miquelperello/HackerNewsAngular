@@ -1,0 +1,27 @@
+
+<table class="info">
+  <tr>
+    <td>user:         <%=params[:id] %> </td>
+  </tr>
+  <tr>
+    <td >created:      <%=time_ago_in_words(User.find_by(name: params[:id]).created_at) %></td>
+  </tr>
+  <tr>
+    <td >about:      <%=User.find_by(name: params[:id]).about%></td>
+  </tr>
+  <% if !current_user.nil? && current_user.name == params[:id] %>
+  <tr>
+    <td >Api_key:      <%=User.find_by(name: params[:id]).key%></td>
+  </tr>
+  <% end %>
+  <tr><td style="width:70%"> <%= link_to "submissions", '/messages/submissions/?id=' + params[:id] %></td></tr>
+
+  <tr><td style="width:70%" > <%= link_to "comments",  '/messages/comment_user/?id=' + params[:id] %></td></tr>
+  <% if !current_user.nil? && current_user.name == params[:id] %>
+  <tr><td  style="width:70%"> <%= link_to "upvoted submissions", '/messages/upvoted/?id=' + current_user.name.to_s + '&comments=f' %> /  <%= link_to "comments", '/messages/upvoted/?id=' + current_user.name.to_s + '&comments=t' %> <i>(private)</i></td></tr>
+  <% end %>
+</table>
+
+
+
+
